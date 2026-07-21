@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.estebanforge.alfred.grammar</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>GRAMMAR_SEARCH</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>COPY_TO_CLIPBOARD</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>GR_SEARCH</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>COPY_TO_CLIPBOARD</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>HOTKEY</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>GRAMMAR_SEARCH</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>EstebanForge</string>
+	<key>description</key>
+	<string>LLM-powered grammar &amp; orthography checker (OpenAI / Anthropic / Gemini)</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Grammar</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>ignoredynamicplaceholders</key>
+				<false/>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>COPY_TO_CLIPBOARD</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>grammar</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Checking grammar…</string>
+				<key>script</key>
+				<string>#!/bin/bash
+export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
+/bin/bash ./scripts/check.sh "{query}"
+</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string>scripts/check.sh</string>
+				<key>subtext</key>
+				<string>Fix grammar &amp; spelling via LLM</string>
+				<key>title</key>
+				<string>Grammar Check</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>GRAMMAR_SEARCH</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>2</integer>
+				<key>focusedappvaluetype</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>5</integer>
+				<key>hotmod</key>
+				<integer>1310720</integer>
+				<key>hotstring</key>
+				<string>g</string>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedApps</key>
+				<array/>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+				<key>waitForDelay</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>HOTKEY</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>keyword</key>
+				<string>gr</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Checking grammar…</string>
+				<key>script</key>
+				<string>#!/bin/bash
+export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
+/bin/bash ./scripts/check.sh "{query}"
+</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string>scripts/check.sh</string>
+				<key>subtext</key>
+				<string>Fix grammar &amp; spelling via LLM</string>
+				<key>title</key>
+				<string>Grammar Check (gr)</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>GR_SEARCH</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string># Grammar
+
+LLM-powered grammar &amp; orthography checker for non-native English speakers. Fix text without changing its meaning, and learn why each change was made.
+
+## Triggers
+- **Hotkey** `⌃⌘G` (Control+Command+G) on your clipboard: copy any text, hit the hotkey, get the fix.
+- **Keyword** `grammar &lt;text&gt;`: type inline to compose and check.
+
+Both share the same provider + model config.
+
+## Result
+- `✏ corrected text` — press `↵` to copy, then `⌘V` back into your app. Subtitle shows what changed.
+  - `⌘↵` copies the explanation instead.
+- `💡 explanation` — press `⇧` (Shift) for the full note in your language (Quick Look).
+
+## Setup (Workflow Configuration)
+Fill these in `Configure Workflow…`:
+
+| Variable | Example | Notes |
+|---|---|---|
+| `Provider` | `OpenAI` *(dropdown)* | Pick from the list. Select “Custom URL” for your own endpoint. |
+| `Custom Endpoint` | `https://my-proxy.com/v1/chat/completions` | Only used when Provider = “Custom URL”. |
+| `API Key` | `sk-...` / `AIza...` | Required for cloud providers. Not needed for `ollama` or a local URL. |
+| `Model` | `gemini-2.5-flash` | Leave blank for the provider's default (cheap/fast current tier). |
+| `Explanation Language` | `Spanish` | Language of the explanation note. |
+
+## Provider dropdown
+`OpenAI` · `Anthropic Claude` · `Google Gemini` · `xAI Grok` · `DeepSeek` · `Alibaba Qwen` · `Moonshot Kimi` · `Xiaomi MiMo` · `MiniMax` · `Z.ai GLM` · `OpenRouter` · `OpenCode Go` · `Ollama (local)` · `Custom URL`
+
+Defaults are 2026-current cheap tiers (verified via models.dev); `gemini-2.0-flash` is shut down.
+
+Requires `jq` and `curl`: `brew install jq curl`
+
+**GitHub**: https://github.com/EstebanForge/grammar-alfred</string>
+	<key>uidata</key>
+	<dict>
+		<key>COPY_TO_CLIPBOARD</key>
+		<dict>
+			<key>xpos</key>
+			<real>540.0</real>
+			<key>ypos</key>
+			<real>180.0</real>
+		</dict>
+		<key>GRAMMAR_SEARCH</key>
+		<dict>
+			<key>xpos</key>
+			<real>280.0</real>
+			<key>ypos</key>
+			<real>180.0</real>
+		</dict>
+		<key>GR_SEARCH</key>
+		<dict>
+			<key>xpos</key>
+			<real>280.0</real>
+			<key>ypos</key>
+			<real>320.0</real>
+		</dict>
+		<key>HOTKEY</key>
+		<dict>
+			<key>xpos</key>
+			<real>40.0</real>
+			<key>ypos</key>
+			<real>180.0</real>
+		</dict>
+	</dict>
+	<key>userconfigurationconfig</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>openai</string>
+				<key>pairs</key>
+				<array>
+					<array>
+						<string>OpenAI</string>
+						<string>openai</string>
+					</array>
+					<array>
+						<string>Anthropic Claude</string>
+						<string>anthropic</string>
+					</array>
+					<array>
+						<string>Google Gemini</string>
+						<string>gemini</string>
+					</array>
+					<array>
+						<string>xAI Grok</string>
+						<string>grok</string>
+					</array>
+					<array>
+						<string>DeepSeek</string>
+						<string>deepseek</string>
+					</array>
+					<array>
+						<string>Alibaba Qwen</string>
+						<string>qwen</string>
+					</array>
+					<array>
+						<string>Moonshot Kimi</string>
+						<string>kimi</string>
+					</array>
+					<array>
+						<string>Xiaomi MiMo</string>
+						<string>mimo</string>
+					</array>
+					<array>
+						<string>MiniMax</string>
+						<string>minimax</string>
+					</array>
+					<array>
+						<string>Z.ai GLM</string>
+						<string>zai</string>
+					</array>
+					<array>
+						<string>OpenRouter</string>
+						<string>openrouter</string>
+					</array>
+					<array>
+						<string>OpenCode Go</string>
+						<string>opencode-go</string>
+					</array>
+					<array>
+						<string>Ollama (local)</string>
+						<string>ollama</string>
+					</array>
+					<array>
+						<string>Custom URL</string>
+						<string>custom</string>
+					</array>
+				</array>
+			</dict>
+			<key>description</key>
+			<string>Which LLM provider to use. Select “Custom URL” to set your own endpoint.</string>
+			<key>label</key>
+			<string>Provider</string>
+			<key>type</key>
+			<string>popupbutton</string>
+			<key>variable</key>
+			<string>PROVIDER</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string></string>
+				<key>placeholder</key>
+				<string>https://your-proxy.example.com/v1/chat/completions</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Only used when Provider = “Custom URL”. Full API URL; wire format is auto-detected from the path (/messages → Anthropic, :generateContent / googleapis.com → Gemini, else OpenAI). localhost/127.0.0.1 skips the API-key check.</string>
+			<key>label</key>
+			<string>Custom Endpoint</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>CUSTOM_ENDPOINT</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string></string>
+				<key>placeholder</key>
+				<string>sk-... / sk-ant-... / AIza...</string>
+				<key>required</key>
+				<true/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>API key for your provider. Not required for `ollama` or a local custom URL.</string>
+			<key>label</key>
+			<string>API Key</string>
+			<key>required</key>
+			<false/>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>API_KEY</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string></string>
+				<key>placeholder</key>
+				<string>gpt-4.1-mini / claude-haiku-4-5 / gemini-2.5-flash</string>
+				<key>required</key>
+				<false/>
+				<key>trim</key>
+				<true/>
+			</dict>
+			<key>description</key>
+			<string>Model id. Leave blank for the provider default (cheap/fast current tier). Browse all IDs at https://models.dev</string>
+			<key>label</key>
+			<string>Model</string>
+			<key>type</key>
+			<string>textfield</string>
+			<key>variable</key>
+			<string>MODEL</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>default</key>
+				<string>Spanish</string>
+				<key>pairs</key>
+				<array>
+					<array>
+						<string>Spanish</string>
+						<string>Spanish</string>
+					</array>
+					<array>
+						<string>English</string>
+						<string>English</string>
+					</array>
+					<array>
+						<string>Português</string>
+						<string>Português</string>
+					</array>
+					<array>
+						<string>Italian</string>
+						<string>Italian</string>
+					</array>
+					<array>
+						<string>French</string>
+						<string>French</string>
+					</array>
+					<array>
+						<string>Japanese</string>
+						<string>Japanese</string>
+					</array>
+					<array>
+						<string>Chinese</string>
+						<string>Chinese</string>
+					</array>
+				</array>
+			</dict>
+			<key>description</key>
+			<string>Language used for the explanation note.</string>
+			<key>label</key>
+			<string>Explanation Language</string>
+			<key>type</key>
+			<string>popupbutton</string>
+			<key>variable</key>
+			<string>EXPLAIN_LANG</string>
+		</dict>
+	</array>
+	<key>variablesdontexport</key>
+	<array>
+		<string>API_KEY</string>
+	</array>
+	<key>version</key>
+	<string>1.0.0</string>
+	<key>webaddress</key>
+	<string>https://github.com/EstebanForge/grammar-alfred</string>
+</dict>
+</plist>
