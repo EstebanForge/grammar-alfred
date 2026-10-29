@@ -89,9 +89,10 @@ resolve_provider() {
 
     # Default models verified current as of 2026-07. Cheapest viable tier per
     # provider (models.dev + official docs). Override with MODEL.
+    # shellcheck disable=SC2034
     case "$lc" in
         # ── Big three (native formats) ──
-        openai|"openai")
+        openai)
             GLM_ENDPOINT="https://api.openai.com"
             GLM_FORMAT="openai"; GLM_MODEL="gpt-4.1-mini"; GLM_ENVVARS="OPENAI_API_KEY" ;;
         anthropic|claude|"anthropic claude")

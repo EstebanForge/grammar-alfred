@@ -59,11 +59,15 @@ echo -e "${GREEN}✅ Syntax OK${NC}"
 
 # Validate plist
 echo -e "${YELLOW}🔍 Validating info.plist...${NC}"
-if ! plutil -lint info.plist >/dev/null; then
-    echo -e "${RED}❌ info.plist is invalid${NC}"
-    exit 1
+if command -v plutil >/dev/null 2>&1; then
+    if ! plutil -lint info.plist >/dev/null; then
+        echo -e "${RED}❌ info.plist is invalid${NC}"
+        exit 1
+    fi
+    echo -e "${GREEN}✅ info.plist valid${NC}"
+else
+    echo -e "${YELLOW}ℹ️  Skipping plutil check (non-macOS)${NC}"
 fi
-echo -e "${GREEN}✅ info.plist valid${NC}"
 
 # Remove old package
 [[ -f "$OUTPUT_FILE" ]] && rm "$OUTPUT_FILE"
